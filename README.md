@@ -15,9 +15,13 @@ git clone https://github.com/laravel-filament/demo.git filament-demo && cd filam
 ```
 
 Install PHP dependencies:
+```sh
+sudo apt install -y php-intl php-xml php-sqlite3 php-curl php-zip php-mysql php-mbstring
+```
+Remove Local package repositories Reference
 
 ```sh
-composer install
+composer udpdate | composer install
 ```
 
 Setup configuration:
@@ -26,28 +30,50 @@ Setup configuration:
 cp .env.example .env
 ```
 
+Create PA shortcut:
+create alias in ~/.bashrc
+source ~/.bashrc
+
+```sh
+alias PA='php artisan'
+```
+
 Generate application key:
 
 ```sh
 php artisan key:generate
 ```
 
-Create an SQLite database. You can also use another database (MySQL, Postgres), simply update your configuration accordingly.
+Create an Mysql database. You can also use another database (MySQL, Postgres), simply update your configuration accordingly.
+
+Check connecttion | Password Reset
 
 ```sh
-touch database/database.sqlite
+Change DB to mysql
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=******
+DB_USERNAME=root
+DB_PASSWORD=******
+```
+```
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '----';
+FLUSH PRIVILEGES;
+EXIT;
 ```
 
 Run database migrations:
 
 ```sh
-php artisan migrate
+PA migrate
 ```
 
 Run database seeder:
 
 ```sh
-php artisan db:seed
+PA db:seed
 ```
 
 > **Note**  
@@ -58,13 +84,13 @@ php artisan db:seed
 Create a symlink to the storage:
 
 ```sh
-php artisan storage:link
+PA storage:link
 ```
 
 Run the dev server (the output will give the address):
 
 ```sh
-php artisan serve
+PA serve
 ```
 
 You're ready to go! Visit the url in your browser, and login with:
@@ -100,3 +126,37 @@ You're ready to go! Visit the url in your browser, and login with:
 #### MorphToMany
 - BrandResource\RelationManagers\AddressRelationManager
 - CustomerResource\RelationManagers\AddressRelationManager
+
+
+# Commands
+
+|||
+| --- | --- |
+|Blanks Start Laravel App | `laravel new example-app` |
+| Update Database | '.env DB Changes' |
+| Create DB and run migration | `php artisan migrate` |
+| Node Package Installation | `npm install && npm run build` |
+| Composer Start | `composer run dev` |
+| Demo | `http://localhost:8000/` |
+| refer Docs | `https://laravel.com/docs/12.x/installation` |
+| Add Beta | `composer config minimum-stability beta` |
+| Filament Installation | `composer require filament/filament:"^4.0"` |
+| Filament Installation | `php artisan filament:install --panels` |
+| Create User | `php artisan filament:install --panels` |
+| Check Login | `http://localhost:8000/admin/login`|
+| OPChache LOcal Dev Optimisation | |
+| Discord Support | gmail k2u |
+| Filament Doc Mindmap | `https://app.eraser.io/workspace/nBzj2OEIyNjqHzDyMbsI` |
+| Create Filament Resource | `php artisan make:filament-resource Customer` |
+| Create Simple Filament Resource | `php artisan make:filament-resource Customer --simple` |
+| Filament Resource Flags | `--generate` `--soft-deletes` `--view` `--model` `--migration` `--factory` |
+| Filament With Rich flags | `php artisan make:filament-resource Customer --model --migration --factory --view --generate`|
+| Generate DB As per need ||
+| Update Model DB As per need ||
+| Update Model DB As per need ||
+| Update Resource Name/Icon||
+| Demo Visit Resource :: | `http://localhost:8000/admin/customers`|
+
+
+
+## Issues

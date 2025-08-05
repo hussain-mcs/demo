@@ -76,12 +76,6 @@
             "dont-discover": []
         }
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../filament/packages/*"
-        }
-    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
