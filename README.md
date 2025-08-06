@@ -20,10 +20,21 @@ sudo apt install -y php-intl php-xml php-sqlite3 php-curl php-zip php-mysql php-
 ```
 Remove Local package repositories Reference
 
+Create a symlink to the storage:
+
+```sh
+PA storage:link
+```
+
+# Composer Install
 ```sh
 composer udpdate | composer install
 ```
 
+# NPM Install and build
+```sh
+npm i && npm run build
+```
 Setup configuration:
 
 ```sh
@@ -81,11 +92,7 @@ PA db:seed
 > Please see https://dba.stackexchange.com/questions/234270/incorrect-datetime-value-mysql
 
 
-Create a symlink to the storage:
 
-```sh
-PA storage:link
-```
 
 Run the dev server (the output will give the address):
 
