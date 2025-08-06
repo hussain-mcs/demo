@@ -166,4 +166,13 @@ You're ready to go! Visit the url in your browser, and login with:
 
 
 
-## Issues
+## Server Mock
+
+
+- git clone
+- composer install
+- php artisan migrate
+- php artisan db:seed
+- npm install && npm run build
+- cp .env.example .env
+- Update DB Creds and APP URL in .env file
