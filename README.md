@@ -170,9 +170,10 @@ You're ready to go! Visit the url in your browser, and login with:
 
 
 - git clone
+- docker-compose up -d 
 - composer install
+- npm install && npm run build
 - php artisan migrate
 - php artisan db:seed
-- npm install && npm run build
 - cp .env.example .env
 - Update DB Creds and APP URL in .env file
